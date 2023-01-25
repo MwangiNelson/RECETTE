@@ -1,0 +1,53 @@
+@import "../root.css";
+
+.home-nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1em;
+  border-bottom: 1px solid var(--primary-dark-blue);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-nav-bar ul li {
+  list-style-type: none;
+  padding-inline: 3em;
+}
+.home-nav-bar ul li a {
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  color: var(--primary-dark-blue);
+  gap: var(--primary-spacer);
+  transition: all 1s ease;
+}
+.home-nav-bar ul li a:hover {
+  color: var(--primary-grey);
+}
+.home-nav-bar ul li a::after {
+  content: "";
+  width: 0%;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  transition: all 0.75s ease;
+  height: 1px;
+  background-color: var(--primary-grey);
+}
+.home-nav-bar ul li a::before {
+  content: "";
+  width: 0%;
+  position: absolute;
+  top: -5px;
+  right: 0;
+  height: 1px;
+  background-color: var(--primary-grey);
+  transition: all .75s ease;
+}
+.home-nav-bar ul li a:hover::before,
+.home-nav-bar ul li a:hover::after {
+  width: 100%;
+}

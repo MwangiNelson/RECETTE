@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=K2D:wght@300&display=swap");
+
+:root {
+  --primary-orange: #ff5400;
+  --primary-yellow: #ffbd00;
+  --primary-dark-blue: #1e1e1e;
+  --primary-grey: #d9d9d9;
+  --primary-font: "K2D", sans-serif;
+
+  --primary-spacer: 1rem;
+}
+* {
+  font-family: var(--primary-font);
+}
+
+body {
+  width: 100vw;
+  max-width: 100%;
+  height: fit-content;
+  position: relative;
+  background-color: var(--primary-orange);
+}
+
+.flex-col {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: inline-flex;
+  flex-direction: row;
+}
