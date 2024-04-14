@@ -31,7 +31,7 @@ function Home() {
                 RECETTE
             </h1>
             <p className="text-center mt-2 text-neutral-300 text-2xl relative">
-                Elevate your culinary skills with the power of AI
+                Elevate your culinary skills with the power of Artificial Intelligence
             </p>
             <form onSubmit={handleSubmit} className="w-1/2 flex gap-1 flex-col bg-[#202020]/60 rounded-lg p-2 items-center justify-center mt-4 ">
                 <div className="flex flex-row w-full h-fit gap-2">
