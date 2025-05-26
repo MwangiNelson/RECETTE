@@ -64,7 +64,12 @@ function DockItem({
   );
 }
 
-function DockLabel({ children, className = "", ...rest }) {
+function DockLabel({
+  children,
+  className = "",
+  labelPosition = "top",
+  ...rest
+}) {
   const { isHovered } = rest;
   const [isVisible, setIsVisible] = useState(false);
 
@@ -75,15 +80,22 @@ function DockLabel({ children, className = "", ...rest }) {
     return () => unsubscribe();
   }, [isHovered]);
 
+  // Improved positioning logic
+  const positionClass =
+    labelPosition === "bottom"
+      ? "absolute left-1/2 bottom-full mt-2"
+      : "absolute left-1/2 top-full mb-2";
+  const yAnim = labelPosition === "bottom" ? 10 : -10;
+
   return (
     <AnimatePresence>
       {isVisible && (
         <motion.div
           initial={{ opacity: 0, y: 0 }}
-          animate={{ opacity: 1, y: -10 }}
+          animate={{ opacity: 1, y: yAnim }}
           exit={{ opacity: 0, y: 0 }}
           transition={{ duration: 0.2 }}
-          className={`${className} absolute -top-6 left-1/2 w-fit  rounded-md border border-neutral-700  px-2 py-0.5 text-xs text-white`}
+          className={`${className} ${positionClass} w-fit  rounded-md border border-neutral-700  px-2 py-0.5 text-xs text-white`}
           role="tooltip"
           style={{ x: "-50%" }}
         >
@@ -108,11 +120,12 @@ export default function Dock({
   items,
   className = "",
   spring = { mass: 0.1, stiffness: 150, damping: 12 },
-  magnification = 70,
+  magnification = 60,
   distance = 200,
   panelHeight = 64,
   dockHeight = 256,
   baseItemSize = 50,
+  labelPosition = "top",
 }) {
   const mouseX = useMotionValue(Infinity);
   const isHovered = useMotionValue(0);
@@ -138,7 +151,7 @@ export default function Dock({
           isHovered.set(0);
           mouseX.set(Infinity);
         }}
-        className={`${className} absolute top-2 left-1/2 transform -translate-x-1/2 flex items-end w-fit gap-4 rounded-2xl border-white/30 border-[1px] pb-2 px-4`}
+        className={`${className} transform -translate-x-1/4 flex items-end w-fit gap-4 rounded-2xl border-white/30 border-[1px] pb-2 px-4`}
         style={{ height: panelHeight }}
         role="toolbar"
         aria-label="Application dock"
@@ -155,7 +168,7 @@ export default function Dock({
             baseItemSize={baseItemSize}
           >
             <DockIcon>{item.icon}</DockIcon>
-            <DockLabel>{item.label}</DockLabel>
+            <DockLabel labelPosition={labelPosition}>{item.label}</DockLabel>
           </DockItem>
         ))}
       </motion.div>

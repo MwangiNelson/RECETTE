@@ -137,10 +137,12 @@ const Step4Results = ({ prevStep, formData, recipe, loading }) => {
           Previous
         </button>
         <button
-          onClick={nextStep}
+          onClick={() => {
+            window.location.reload();
+          }}
           className="mt-4 px-4 py-2 rounded-md bg-primary-purple shadow-primary-button-shadow text-white"
         >
-          Next
+          Generate New Recipe
         </button>
       </div>
     </div>

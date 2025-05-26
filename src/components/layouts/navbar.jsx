@@ -1,16 +1,49 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Home, Sparkles, Settings } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import Dock from "../ui/Dock";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const items = [
+    {
+      label: "Home",
+      icon: <Home />,
+      path: "/",
+    },
+    {
+      label: "Generate",
+      icon: <Sparkles />,
+      path: "/generate",
+    },
+    {
+      label: "Settings",
+      icon: <Settings />,
+      path: "/settings",
+    },
+  ];
   return (
-    <div className="w-full border-b border-gray-900 absolute top-0 left-0">
-      <div className="flex justify-between items-center">
+    <div className="w-full flex flex-row justify-between items-center border-b border-gray-900">
+      <div className="flex justify-between items-center bg-yellow-300">
         <Link to="/">
-          <div className="flex items-center bg-yellow-300 p-4 px-6">
+          <div className="flex items-center  p-4 px-6">
             <h3 className="text-3xl font-bold">RECETTE</h3>
           </div>
         </Link>
       </div>
+      <div className="flex flex-row items-center">
+        {items.map((item) => (
+          <div key={item.label} className="flex items-center  px-6">
+            <Link to={item.path}>
+              <div className="flex items-center gap-2 text-white">
+                {item.icon} {item.label}
+              </div>
+            </Link>
+          </div>
+        ))}
+      </div>
+      <div className="flex"></div>
     </div>
   );
 };

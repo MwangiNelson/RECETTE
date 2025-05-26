@@ -33,10 +33,9 @@ function App() {
 
   return (
     <ModelProvider>
-      <div className="h-fit min-h-screen relative w-screen overflow-hidden bg-[#ff5400] p-3 md:p-0 flex flex-col items-center justify-center">
+      <div className="h-fit min-h-screen h-full relative w-screen overflow-hidden bg-[#ff5400] p-3 md:p-0 flex flex-col items-center justify-between">
         <Navbar />
         <NavigationRoutes />
-        <Dock items={items} className="absolute top-0" />
         <Footer />
       </div>
     </ModelProvider>
