@@ -17,6 +17,7 @@ const dietaryOptions = [
 const cookingTimes = ["< 15 min", "15-30 min", "30-60 min", "1+ hour"];
 const difficulties = ["Beginner", "Intermediate", "Expert"];
 const cuisineTypes = [
+  "African",
   "Italian",
   "Mexican",
   "Indian",

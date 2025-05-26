@@ -46,7 +46,12 @@ const RecipeGenerator = () => {
       try {
         const prompt = `Generate a recipe in JSON format with the following structure: { title, description, totalTime, servings, difficulty, calories, tags, ingredients, nutrition, instructions }. Use these preferences: ${JSON.stringify(
           formData
-        )}.`;
+        )}.
+        STRICTLY FOLLOW THE JSON FORMAT. 
+        STRICTLY use the ingredients that are provided in the ingredients array. If you want to suggest extra ingredients, at the end of the instructions, suggest them as a part of instructions as NOTE : extras 
+        on the instructions array.
+        - STRICTLY FOLLOW THE JSON FORMAT.
+        `;
         const response = await ai.models.generateContent({
           model: "gemini-2.0-flash",
           contents: prompt,
@@ -68,7 +73,7 @@ const RecipeGenerator = () => {
     setFormData((prev) => ({ ...prev, ...data }));
 
   return (
-    <div className="w-full h-fit min-h-[calc(100vh-100px)] flex flex-col items-center justify-center py-10 relative ">
+    <div className="w-full h-fit min-h-[calc(100vh-100px)] flex flex-col items-center justify-center px-3 md:px-0 py-10 relative ">
       {step === 1 && (
         <Step1GeneralPrompt
           nextStep={nextStep}
@@ -104,7 +109,7 @@ const RecipeGenerator = () => {
       <img
         src={Burger}
         alt=""
-        className="absolute animate-floating -left-14 p-10 h-3/4 object-contain z-0 "
+        className="absolute hidden md:block animate-floating -left-14 p-10 h-3/4 object-contain z-0 "
       />
     </div>
   );

@@ -33,7 +33,7 @@ function App() {
 
   return (
     <ModelProvider>
-      <div className="h-fit min-h-screen h-full relative w-screen overflow-hidden bg-[#ff5400] p-3 md:p-0 flex flex-col items-center justify-between">
+      <div className="h-fit min-h-screen h-full relative w-screen overflow-hidden bg-[#ff5400] md:p-0 flex flex-col items-center justify-between">
         <Navbar />
         <NavigationRoutes />
         <Footer />

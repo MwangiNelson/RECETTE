@@ -60,7 +60,7 @@ function Home() {
   };
 
   return (
-    <div className="h-full relative w-full flex flex-col items-center justify-center rounded-lg min-h-[calc(100vh-100px)]">
+    <div className="h-full relative w-full flex flex-col items-center justify-center rounded-lg min-h-[calc(100vh-100px)] p-3 md:p-0">
       <motion.div
         className="w-11/12 md:w-3/4 bg-yellow-300 relative border items-center justify-center flex flex-col border-black h-fit min-h-[20vh] md:min-h-[40vh]"
         variants={yellowVariants}

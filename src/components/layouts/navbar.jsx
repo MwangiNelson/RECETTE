@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Home, Sparkles, Settings } from "lucide-react";
+import { Home, Sparkles, Settings, Menu } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Dock from "../ui/Dock";
 
@@ -32,7 +32,7 @@ const Navbar = () => {
           </div>
         </Link>
       </div>
-      <div className="flex flex-row items-center">
+      <div className="hidden md:flex flex-row items-center">
         {items.map((item) => (
           <div key={item.label} className="flex items-center  px-6">
             <Link to={item.path}>
@@ -43,6 +43,10 @@ const Navbar = () => {
           </div>
         ))}
       </div>
+      <div className="flex md:hidden">
+        <Menu size={24} />
+      </div>
+
       <div className="flex"></div>
     </div>
   );

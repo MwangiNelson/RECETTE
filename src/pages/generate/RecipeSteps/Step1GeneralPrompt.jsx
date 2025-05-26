@@ -61,7 +61,7 @@ const Step1GeneralPrompt = ({ nextStep, updateFormData, formData }) => {
       </div>
       <div>
         <label className="block font-semibold mb-2">What type of meal?</label>
-        <div className="flex gap-4 mb-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-4">
           {mealTypes.map((type) => (
             <div
               type="button"
@@ -83,7 +83,7 @@ const Step1GeneralPrompt = ({ nextStep, updateFormData, formData }) => {
               >
                 {type.label}
               </h3>
-              <small className="text-xs text-black/50">
+              <small className="text-xs text-black/50 text-center">
                 {type.description}
               </small>
             </div>
