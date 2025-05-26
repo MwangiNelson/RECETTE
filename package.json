@@ -9,12 +9,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/pro-components": "^2.8.7",
+    "@google/genai": "^1.0.1",
     "@google/generative-ai": "^0.11.4",
+    "antd": "^5.25.3",
     "bootstrap-icons": "^1.11.3",
     "clsx": "^2.1.1",
     "firebase": "^9.16.0",
     "flowbite-react": "^0.9.0",
-    "framer-motion": "^11.2.9",
+    "framer-motion": "^11.18.2",
+    "lucide-react": "^0.511.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.5",
