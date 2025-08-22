@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import { Home, Sparkles, Settings, Menu } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Dock from "../ui/Dock";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -33,21 +39,39 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="hidden md:flex flex-row items-center">
-        {items.map((item) => (
-          <div key={item.label} className="flex items-center  px-6">
-            <Link to={item.path}>
-              <div className="flex items-center gap-2 text-white">
-                {item.icon} {item.label}
-              </div>
-            </Link>
-          </div>
-        ))}
+        <SignedIn>
+          {items.map((item) => (
+            <div key={item.label} className="flex items-center  px-6">
+              <Link to={item.path}>
+                <div className="flex items-center gap-2 text-white">
+                  {item.icon} {item.label}
+                </div>
+              </Link>
+            </div>
+          ))}
+        </SignedIn>
       </div>
       <div className="flex md:hidden">
-        <Menu size={24} />
+        <SignedIn>
+          <Menu size={24} />
+        </SignedIn>
       </div>
 
-      <div className="flex"></div>
+      <div className="flex ">
+        <SignedOut>
+          <SignInButton>
+            <button className="bg-white p-2 py-3 bg-purple-800 text-white  hover:scale-105 transition-all duration-300 !w-fit px-10">
+              GET STARTED <i className="fa-solid fa-angles-right blue"></i>
+            </button>
+          </SignInButton>
+        </SignedOut>
+        <SignedIn>
+          {" "}
+          <div className="flex me-4">
+            <UserButton />
+          </div>
+        </SignedIn>
+      </div>
     </div>
   );
 };

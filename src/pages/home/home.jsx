@@ -5,7 +5,7 @@ import "./home.css";
 import { Link } from "react-router-dom";
 import { motion, useAnimation } from "framer-motion";
 import { useBreakpoint } from "@ant-design/pro-components";
-
+import { SignedIn, SignedOut, SignInButton } from "@clerk/clerk-react";
 function Home() {
   const yellowControls = useAnimation();
   const textControls = useAnimation();
@@ -100,11 +100,20 @@ function Home() {
           <h3>GENERATE</h3>
         </div>
         <div className="grid-btn">
-          <Link to="/generate" style={{ width: "75%" }}>
-            <button className="btn-hero">
-              GET STARTED <i className="fa-solid fa-angles-right blue"></i>
-            </button>
-          </Link>
+          <SignedOut>
+            <SignInButton>
+              <button className="btn-hero !w-fit px-10">
+                GET STARTED <i className="fa-solid fa-angles-right blue"></i>
+              </button>
+            </SignInButton>
+          </SignedOut>
+          <SignedIn>
+            <Link to="/generate">
+              <button className="btn-hero !w-fit px-10">
+                GET STARTED <i className="fa-solid fa-angles-right blue"></i>
+              </button>
+            </Link>
+          </SignedIn>
         </div>
         <div className="grid-summary">
           <h2>250+</h2>
