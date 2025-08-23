@@ -820,7 +820,7 @@ Ready to generate your recipe? Just type 'generate' or press Enter!`;
   };
 
   return (
-    <div className="w-full h-full max-h-[90vh] flex bg-[#ff5400]">
+    <div className="w-full h-full max-h-[90vh] min-h-[90vh] flex bg-[#ff5400]">
       {/* Sidebar */}
       <div
         className={`${
