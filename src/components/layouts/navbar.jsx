@@ -60,7 +60,7 @@ const Navbar = () => {
       <div className="flex ">
         <SignedOut>
           <SignInButton>
-            <button className="bg-white p-2 py-3 bg-purple-800 text-white  hover:scale-105 transition-all duration-300 !w-fit px-10">
+            <button className="bg-white p-2 py-3 !bg-purple-800 !text-white  hover:scale-105 transition-all duration-300 !w-fit px-10">
               GET STARTED <i className="fa-solid fa-angles-right blue"></i>
             </button>
           </SignInButton>
