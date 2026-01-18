@@ -747,7 +747,7 @@ Ready to generate your recipe? Just type 'generate' or press Enter!`;
       `;
 
       const response = await ai.models.generateContent({
-        model: "gemini-2.0-flash",
+        model: "gemini-2.5-flash",
         contents: prompt,
       });
 
